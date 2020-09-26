@@ -9,7 +9,7 @@
         "map": [
             [
                 "*",
-                "Hostinghelden/Luma"
+                "frontend/Hostinghelden/Luma"
             ]
         ]
     },
