@@ -1,0 +1,35 @@
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php if ($_description = $block->getCurrentCategory()->getDescription()): ?>
+    <div class="category-description">
+        <?= /* @escapeNotVerified */ $this->helper('Magento\Catalog\Helper\Output')->categoryAttribute($block->getCurrentCategory(), $_description, 'description') ?>
+    </div>
+<?php endif; ?>
+<?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $class = 'Magento\Catalog\Model\Category';
+    $catId = $block->getCurrentCategory()->getId();  //Parent Category ID
+    $subCategory = $objectManager->create($class)->load($catId);
+    $subCats = $subCategory->getChildrenCategories();
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<div class="subcategories">
+<?php
+    foreach ($subCats as $subcat) {
+      $_category = $objectManager->create($class)->load($subcat->getId());
+      $subcaturl = $subcat->getUrl();
+      $imageurl = $subcat->getImageUrl();
+      $name = $subcat->getName();
+?>
+<div class="subcategory">
+    <img src="<?php echo $imageurl ?>" alt="">
+    <a class="subcategory-link" href="<?php echo $subcaturl ?>"> <?php echo $name ?></a>
+</div>
+<?php
+    }
+?>

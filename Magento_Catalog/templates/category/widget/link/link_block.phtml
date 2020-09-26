@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<div class="widget block block-category-link">
+  <?php
+      $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+      $class = 'Magento\Catalog\Model\Category';
+      $catId = 2;
+      $subCategory = $objectManager->create($class)->load($catId);
+      $subCats = $subCategory->getChildrenCategories();
+  ?>
+  <div class="subcategories">
+  <?php
+      foreach ($subCats as $subcat) {
+        $_category = $objectManager->create($class)->load($subcat->getId());
+        $subcaturl = $subcat->getUrl();
+        $imageurl = $_category->getImageUrl();
+        $name = $subcat->getName();
+  ?>
+    <div class="subcategory">
+      <img src="<?php echo $imageurl ?>" alt="">
+      <a class="subcategory-link" href="<?php echo $subcaturl ?>"> <?php echo $name ?></a>
+    </div>
+  <?php } ?>
+  </div>
+</div>

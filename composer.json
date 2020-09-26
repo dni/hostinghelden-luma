@@ -1,0 +1,23 @@
+{
+    "name": "hostinghelden/hostinghelden-luma",
+    "description": "modified luma template",
+    "require": {
+    },
+    "type": "magento2-theme",
+    "version": "1.0.0",
+    "extra": {
+        "map": [
+            [
+                "*",
+                "Hostinghelden/Luma"
+            ]
+        ]
+    },
+    "authors": [
+        {
+            "name": "Daniel Krahofer",
+            "homepage": "https://www.hostinghelden.at/",
+            "role": "Developer"
+        }
+    ]
+}

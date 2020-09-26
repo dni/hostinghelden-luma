@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+      <referenceContainer name="header-wrapper">
+          <block before="topSearch" class="Magento\Framework\View\Element\Template" name="top.customer" as="topCustomer" template="Magento_Theme::customerlink.phtml" />
+        </referenceContainer>
+        <referenceBlock name="logo">
+          <arguments>
+            <argument name="logo_file" xsi:type="string">images/logo.jpg</argument>
+            <argument name="logo_img_width" xsi:type="number">308</argument>
+            <argument name="logo_img_height" xsi:type="number">134</argument>
+          </arguments>
+        </referenceBlock>
+        <referenceBlock name="sidebar.main">
+            <block class="Magento\Cms\Block\Block" name="sidebarFacebook">
+              <arguments>
+                <argument name="block_id" xsi:type="string">sidebar_facebook</argument>
+              </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="sidebarSchelifen">
+              <arguments>
+                <argument name="block_id" xsi:type="string">messerschleifservice</argument>
+              </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="sidebarAngebote">
+              <arguments>
+                <argument name="block_id" xsi:type="string">angebote</argument>
+              </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="sidebarPayment">
+              <arguments>
+                <argument name="block_id" xsi:type="string">sidebar_payment</argument>
+              </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="header.links">
+              <block class="Magento\Cms\Block\Block" name="basenav" before="welcome">
+                <arguments>
+                  <argument name="block_id" xsi:type="string">basenav</argument>
+                </arguments>
+              </block>
+        </referenceBlock>
+        <referenceBlock name="footer">
+            <!-- <referenceBlock name="form.subscribe" remove="true" /> -->
+            <referenceBlock name="footer_links" remove="true" />
+            <referenceBlock name="copyright" remove="true" />
+            <container name="div.footer.contact" htmlTag="div" htmlClass="footer-contact">
+              <block class="Magento\Cms\Block\Block" name="footerContact">
+                <arguments>
+                  <argument name="block_id" xsi:type="string">footer_contact</argument>
+                </arguments>
+              </block>
+            </container>
+            <container name="div.footer.links" htmlTag="div" htmlClass="footer-links">
+              <block class="Magento\Cms\Block\Block" name="footerCustom">
+                <arguments>
+                  <argument name="block_id" xsi:type="string">footer_links</argument>
+                </arguments>
+              </block>
+            </container>
+        </referenceBlock>
+    </body>
+</page>
